@@ -1,4 +1,4 @@
-#N canvas 253 74 1187 758 12;
+#N canvas 195 23 1187 836 12;
 #X obj 562 33 oscparse;
 #X obj 563 56 list trim;
 #X floatatom 353 244 5 0 0 0 - - -;
@@ -22,7 +22,7 @@
 #X obj 1076 667 0;
 #X obj 132 433 *~;
 #X floatatom 1060 697 5 0 0 0 - - -;
-#X obj 116 556 send~ out;
+#X obj 229 719 send~ out;
 #X obj 477 318 receive~ out;
 #X obj 133 459 +~;
 #X obj 218 374 *~;
@@ -146,7 +146,7 @@
 #X obj 352 298 s transpose;
 #X obj 1044 514 loadbang;
 #X msg 1043 540 1;
-#X obj 1043 594 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+#X obj 1043 594 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
 1;
 #X obj 1043 616 sel 0 1;
 #X obj 1122 546 abs;
@@ -220,7 +220,7 @@
 #X obj 316 347 abs;
 #X obj 316 374 + 3;
 #X obj 389 342 abs;
-#N canvas 679 203 538 495 load-z-axis 0;
+#N canvas 665 222 538 495 load-z-axis 1;
 #X obj 23 17 loadbang;
 #X obj 24 82 soundfiler;
 #X obj 183 120 *~;
@@ -244,10 +244,29 @@
 #X connect 6 0 4 0;
 #X connect 7 0 8 0;
 #X restore 221 322 pd load-z-axis;
-#X obj 26 207 noise~;
 #X obj 192 465 *~;
 #X obj 289 216 *~ 1;
-#X obj 25 236 osc~ 880;
+#X obj 270 643 *~;
+#X obj 285 619 line~;
+#X obj 285 597 r master-amp;
+#X obj 249 590 +~;
+#X obj 270 671 hip~ 7;
+#N canvas 321 303 368 263 audio-transformation 0;
+#X obj 113 95 osc~;
+#X obj 97 116 *~;
+#X obj 97 138 hip~ 7;
+#X obj 97 22 inlet~;
+#X obj 97 169 outlet~;
+#X obj 97 47 hip~ 7;
+#X obj 187 65 5;
+#X connect 0 0 1 1;
+#X connect 1 0 2 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 0 0;
+#X restore 249 563 pd audio-transformation;
+#X obj 326 703 env~ 16384;
 #X connect 0 0 1 0;
 #X connect 1 0 10 0;
 #X connect 1 0 12 0;
@@ -319,6 +338,7 @@
 #X connect 59 0 51 0;
 #X connect 60 0 65 0;
 #X connect 61 0 60 0;
+#X connect 62 0 92 0;
 #X connect 62 0 21 0;
 #X connect 63 0 19 1;
 #X connect 65 0 58 1;
@@ -340,7 +360,7 @@
 #X connect 76 0 64 0;
 #X connect 77 0 71 1;
 #X connect 78 0 54 1;
-#X connect 78 0 87 0;
+#X connect 78 0 86 0;
 #X connect 79 0 78 0;
 #X connect 80 0 62 0;
 #X connect 80 0 66 0;
@@ -348,6 +368,13 @@
 #X connect 82 0 80 1;
 #X connect 83 0 24 1;
 #X connect 84 0 24 0;
-#X connect 84 0 86 0;
-#X connect 86 0 58 0;
-#X connect 87 0 86 1;
+#X connect 84 0 85 0;
+#X connect 85 0 58 0;
+#X connect 86 0 85 1;
+#X connect 87 0 91 0;
+#X connect 88 0 87 1;
+#X connect 89 0 88 0;
+#X connect 90 0 87 0;
+#X connect 91 0 93 0;
+#X connect 91 0 21 0;
+#X connect 92 0 90 0;
