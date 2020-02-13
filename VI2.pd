@@ -22,7 +22,7 @@
 #X obj 1076 667 0;
 #X obj 132 433 *~;
 #X floatatom 1060 697 5 0 0 0 - - -;
-#X obj 229 719 send~ out;
+#X obj 151 695 send~ out;
 #X obj 477 318 receive~ out;
 #X obj 133 459 +~;
 #X obj 218 374 *~;
@@ -146,7 +146,7 @@
 #X obj 352 298 s transpose;
 #X obj 1044 514 loadbang;
 #X msg 1043 540 1;
-#X obj 1043 594 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+#X obj 1043 594 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
 1;
 #X obj 1043 616 sel 0 1;
 #X obj 1122 546 abs;
@@ -220,7 +220,7 @@
 #X obj 316 347 abs;
 #X obj 316 374 + 3;
 #X obj 389 342 abs;
-#N canvas 665 222 538 495 load-z-axis 1;
+#N canvas 665 222 538 495 load-z-axis 0;
 #X obj 23 17 loadbang;
 #X obj 24 82 soundfiler;
 #X obj 183 120 *~;
@@ -247,26 +247,27 @@
 #X obj 192 465 *~;
 #X obj 289 216 *~ 1;
 #X obj 270 643 *~;
-#X obj 285 619 line~;
-#X obj 285 597 r master-amp;
-#X obj 249 590 +~;
+#X obj 313 620 line~;
+#X obj 313 598 r master-amp;
+#X obj 270 604 +~;
 #X obj 270 671 hip~ 7;
-#N canvas 321 303 368 263 audio-transformation 0;
+#N canvas 605 397 652 309 audio-transformation 1;
 #X obj 113 95 osc~;
 #X obj 97 116 *~;
 #X obj 97 138 hip~ 7;
 #X obj 97 22 inlet~;
 #X obj 97 169 outlet~;
 #X obj 97 47 hip~ 7;
-#X obj 187 65 5;
+#X obj 175 59 r frequency;
 #X connect 0 0 1 1;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
 #X connect 3 0 5 0;
 #X connect 5 0 1 0;
 #X connect 6 0 0 0;
-#X restore 249 563 pd audio-transformation;
-#X obj 326 703 env~ 16384;
+#X restore 270 577 pd audio-transformation;
+#X obj 270 698 env~ 16384;
+#X obj 74 208 s frequency;
 #X connect 0 0 1 0;
 #X connect 1 0 10 0;
 #X connect 1 0 12 0;
@@ -282,6 +283,7 @@
 #X connect 7 0 83 0;
 #X connect 8 0 63 0;
 #X connect 8 0 66 1;
+#X connect 8 0 94 0;
 #X connect 9 0 7 0;
 #X connect 10 0 4 0;
 #X connect 10 0 6 0;
